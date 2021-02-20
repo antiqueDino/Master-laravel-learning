@@ -11,9 +11,11 @@
     </h1>
     <p>{{ $post->content }}</p>
 
-    <p>Added {{ $post->created_at->diffForHumans() }}</p>
+    {{-- <p>Added {{ $post->created_at->diffForHumans() }}</p> --}}
 
-    
+    <x-updated date="{{ $post->updated_at->diffForHumans() }}" name="{{ $post->user->name }}">
+        Updated
+    </x-updated>
 
     <h4>Comments</h4>
 
@@ -22,7 +24,10 @@
             {{ $comment->content }}
         </p>
         <p class="text-muted">
-            added {{ $comment->created_at->diffForHumans() }}
+            {{-- added {{ $comment->created_at->diffForHumans() }} --}}
+            <x-updated date="{{ $post->created_at->diffForHumans() }}" >
+                Updated
+            </x-updated>
         </p>
     @empty
         <p>No comments yet!</p>
