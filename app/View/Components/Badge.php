@@ -12,17 +12,16 @@ class Badge extends Component
      *
      * @var string
      */
-    public $type;
-
+    public $show;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($type)
+    public function __construct($show)
     {
-        $this->type = $type;
+        $this->show = $show;
     }
 
     /**

@@ -1,19 +1,19 @@
 @extends('layout')
 
 @section('content')
-    <h1>{{ $post->title }}</h1>
+    <h1>
+        {{ $post->title }}
+
+        <x-badge  show="{{ now()->diffInMinutes($post->created_at) < 15 }}">
+            Brand new Post!
+        </x-badge>
+    
+    </h1>
     <p>{{ $post->content }}</p>
 
     <p>Added {{ $post->created_at->diffForHumans() }}</p>
 
-    @if ((new Carbon\Carbon())->diffInMinutes($post->created_at) < 60 )
-        <x-badge type="primary">
-            Brand new Post!
-        </x-badge>
-        {{-- @badge(['type' => 'primary'])
-            Brand new Post!
-        @endbadge --}}
-    @endif
+    
 
     <h4>Comments</h4>
 

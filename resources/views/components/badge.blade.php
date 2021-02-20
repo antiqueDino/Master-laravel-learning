@@ -1,3 +1,10 @@
-<div class="badge badge-{{ $type ?? 'success' }}">
-    {{ $slot }}
-</div>
+@if ($show)
+    {{-- <span  class="badge badge-{{ $type ?? 'success' }}">
+        {{ $slot }} --}}
+    {{-- </span> --}}
+
+    <span class="badge badge-{{ $type ?? 'success'  }}">
+        {{ $slot }} 
+    </span>
+    
+@endif
