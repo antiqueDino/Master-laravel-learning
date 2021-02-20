@@ -6,10 +6,13 @@
 
     <p>Added {{ $post->created_at->diffForHumans() }}</p>
 
-    @if ((new Carbon\Carbon())->diffInMinutes($post->created_at) < 20 )
-        @component('badge', ['type' => 'primary'])
+    @if ((new Carbon\Carbon())->diffInMinutes($post->created_at) < 60 )
+        <x-badge type="primary">
             Brand new Post!
-        @endcomponent
+        </x-badge>
+        {{-- @badge(['type' => 'primary'])
+            Brand new Post!
+        @endbadge --}}
     @endif
 
     <h4>Comments</h4>
